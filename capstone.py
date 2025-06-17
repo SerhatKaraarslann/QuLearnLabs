@@ -12,12 +12,12 @@ grover_circ.h([0, 1, 2, 3])
 
 # Grover's algorithm iterations
 for _ in range(int(math.pi)): # formel is π/4*sqrt(N) where N = pow(2,4) 
-# Oracle für |0010⟩
-    grover_circ.x([3,2,0])  
+# Oracle for |0100⟩
+    grover_circ.x([3,1,0])  
     grover_circ.h(3)
     grover_circ.mcx([0,1,2], 3)
     grover_circ.h(3)
-    grover_circ.x([3,2,0])  
+    grover_circ.x([3,1,0])  
     
     # Diffusion
     grover_circ.h([0,1,2,3])
@@ -49,4 +49,4 @@ pro_dict = {state: c / shots for state, c in counts.items()}
 
 plot_histogram({state: c / shots for state, c in counts.items()},title="Probabilities of Measurement Outcomes")
 
-grover_circ.draw('mpl')
+#grover_circ.draw('mpl')
